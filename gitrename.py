@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import re
+import subprocess
+
+class bcolors:
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    IN = '\033[93m'
+    ENDC = '\033[0m'
+
+def main():
+  if len(sys.argv) is not 2:
+    print "Usage: %s {new branch name}" % os.path.basename(__file__)
+    sys.exit(1)
+
+  current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
+  new_branch = sys.argv[1]
+
+  chosen = ""
+
+  while True:
+    print
+    print "Renaming the branch " + bcolors.OKGREEN + current_branch + bcolors.ENDC + \
+        " to " + bcolors.OKGREEN + new_branch + bcolors.ENDC + "?"
+    answer = raw_input("[yN] > ")
+
+    if answer.startswith("n") or answer.startswith("N"):
+      sys.exit(1)
+    elif answer == "y" or answer == "Y" or answer == "yes" or answer == "Yes":
+      subprocess.check_call(['git', 'branch', '-m', current_branch, new_branch])
+      subprocess.check_call(['git', 'push', 'origin', ':' + current_branch])
+      subprocess.check_call(['git', 'push', '--set-upstream', 'origin', new_branch])
+
+      sys.exit(0)
+
+    elif answer == "q" or answer == "":
+      sys.exit(1)
+    else:
+      print "Answer " + bcolors.IN + answer + bcolors.ENDC + " has not been recognized."
+
+  print
+
+
+if __name__ == "__main__":
+  main()

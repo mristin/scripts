@@ -1,0 +1,35 @@
+#!/bin/bash
+screen -d -m -S radnicka
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+screen -x radnicka -X title vim 
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title intellij 
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title aws 
+screen -x radnicka -X stuff $'cd /home/mristin/aws\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title mongo-local 
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title scala
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title go
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title git
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title sparkMaster
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
+
+screen -x radnicka -X screen 
+screen -x radnicka -X title livemapper
+screen -x radnicka -X stuff $'cd /home/mristin/workspace/production\r'
