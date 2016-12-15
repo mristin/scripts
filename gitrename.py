@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
@@ -13,19 +13,19 @@ class bcolors:
 
 def main():
   if len(sys.argv) is not 2:
-    print "Usage: %s {new branch name}" % os.path.basename(__file__)
+    print("Usage: {} [new branch name]".format(os.path.basename(__file__)))
     sys.exit(1)
 
-  current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).strip()
+  current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode().strip()
   new_branch = sys.argv[1]
 
   chosen = ""
 
   while True:
-    print
-    print "Renaming the branch " + bcolors.OKGREEN + current_branch + bcolors.ENDC + \
-        " to " + bcolors.OKGREEN + new_branch + bcolors.ENDC + "?"
-    answer = raw_input("[yN] > ")
+    print()
+    print("Renaming the branch " + bcolors.OKGREEN + current_branch + bcolors.ENDC + \
+        " to " + bcolors.OKGREEN + new_branch + bcolors.ENDC + "?")
+    answer = input("[yN] > ")
 
     if answer.startswith("n") or answer.startswith("N"):
       sys.exit(1)
@@ -39,9 +39,9 @@ def main():
     elif answer == "q" or answer == "":
       sys.exit(1)
     else:
-      print "Answer " + bcolors.IN + answer + bcolors.ENDC + " has not been recognized."
+      print("Answer " + bcolors.IN + answer + bcolors.ENDC + " has not been recognized.")
 
-  print
+  print()
 
 
 if __name__ == "__main__":
