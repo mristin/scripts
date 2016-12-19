@@ -12,12 +12,15 @@ class bcolors:
     ENDC = '\033[0m'
 
 def main():
-  if len(sys.argv) is not 2:
+  if len(sys.argv) is 1:
+    new_branch = input(bcolors.OKBLUE + "Name of the new branch (spaces will be replaced with '-'): " + bcolors.ENDC)
+  elif len(sys.argv) is 2:
+    new_branch = sys.argv[1]
+  else:
     print("Usage: {} [new branch name]".format(os.path.basename(__file__)))
     sys.exit(1)
 
   current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode().strip()
-  new_branch = sys.argv[1]
 
   chosen = ""
 

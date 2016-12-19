@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os, sys, re,subprocess
 
@@ -13,7 +13,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def main():
-    answer = raw_input(bcolors.OKBLUE + "Name of the new branch (spaces will be replaced with '-'): " + bcolors.ENDC)
+    answer = input(bcolors.OKBLUE + "Name of the new branch (spaces will be replaced with '-'): " + bcolors.ENDC)
 
     answer=answer.replace(' ', '-')
     subprocess.check_call(['git', 'checkout', '-b', answer])
