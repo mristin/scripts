@@ -9,9 +9,9 @@ class bcolors:
     ENDC = '\033[0m'
 
 def main():
-    current_branch = subprocess.check_output(["git", "rev-parse", "-abbrev-ref", "HEAD"]).strip()
+    current_branch = subprocess.check_output(["git", "rev-parse", "-abbrev-ref", "HEAD"]).decode().strip()
 
-    lst = subprocess.check_output(["git", "show-branch", "--topo-order", "--no-color", "--list"]).split("\n")
+    lst = subprocess.check_output(["git", "show-branch", "--topo-order", "--no-color", "--list"]).decode().split("\n")
     
     branchRe = re.compile(r'^[ *]*\[([^\]]*)\].*$')
     branches = list(reversed([branchRe.match(branch).group(1) for branch in lst if branch != ""]))
@@ -30,7 +30,7 @@ def main():
     options = range(len(branches))
 
     while chosen not in options:
-        answer = raw_input("Which branch to jump to? >")
+        answer = input("Which branch to jump to? >")
         if answer.startswith("q"):
             sys.exit(1)
 
