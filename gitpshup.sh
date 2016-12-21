@@ -6,6 +6,14 @@ if [ "$BRANCH" == "master" ]; then
   exit 1
 fi
 
+if [ -f `pwd`/precommit.sh ]; then
+	`pwd`/precommit.sh
+	if [ $? -ne 0 ]; then
+		echo "precommit failed."
+		exit 1
+	fi
+fi
+
 CMD="git push --set-upstream origin $BRANCH"
 
 echo "$CMD"
