@@ -4,6 +4,8 @@
 import subprocess
 import multiprocessing
 import re
+import os
+import sys
 
 import evdev
 
@@ -12,6 +14,10 @@ def main():
     """
     Main routine
     """
+    if os.getuid() != 0:
+        print("You need to be root to run this program.")
+        sys.exit(1)
+
     name_re = re.compile(r'^N: Name="(?P<name>.*)"$')
 
     blocks=[]
