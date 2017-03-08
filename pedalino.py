@@ -23,11 +23,11 @@ import multiprocessing
 import evdev
 
 backpedal_pth = ""
-frontpedal_pth = "/dev/input/event6"
+frontpedal_pth = "/dev/input/event7"
 leftpedal_pth = ""
 rightpedal_pth = ""
 kickleft_pth = "/dev/input/event4"
-kickright_pth = "/dev/input/event5"
+kickright_pth = "/dev/input/event6"
 
 def do_leftpedal():
     if leftpedal_pth == '':
@@ -163,25 +163,23 @@ def do_backpedal():
             if e.keystate == e.key_up:
                 title = subprocess.check_output(["xdotool", "getactivewindow", "getwindowname"])
 
-                if e.keycode == "KEY_LEFTALT":
-                    subprocess.call(["xdotool", "key", "alt+Tab"])
-                elif e.keycode == "KEY_LEFTCTRL":
+                if e.keycode == "KEY_2":
                     if "Firefox" in title:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Up"])
-                    elif "IntelliJ" in title:
+                    elif "PyCharm" in title:
                         subprocess.call(["xdotool", "key", "alt+Left"])
-                    elif "radnik" in title:
-                        subprocess.call(["xdotool", "key", "ctrl+a"])
+                    elif "Terminal" in title:
+                        subprocess.call(["xdotool", "key", "ctrl+Page_Up"])
                         subprocess.call(["xdotool", "key", "h"])
 
-                elif e.keycode == "KEY_ESC":
+                elif e.keycode == "KEY_1":
                     if "Firefox" in title:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Down"])
-                    elif "IntelliJ" in title:
+                    elif "PyCharm" in title:
                         subprocess.call(["xdotool", "key", "alt+Right"])
-                    elif "radnik" in title:
+                    elif "Terminal" in title:
                         subprocess.call(["xdotool", "key", "ctrl+a"])
-                        subprocess.call(["xdotool", "key", "l"])
+                        subprocess.call(["xdotool", "key", "ctrl+Page_Down"])
 
     except e:
         dev.ungrab()
@@ -202,7 +200,7 @@ def do_kickright():
 
             if e.keystate == e.key_up:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "key", "alt+Tab"])
+                    subprocess.call(["xdotool", "key", "shift+F10"])
 
     except e:
         dev.ungrab()
