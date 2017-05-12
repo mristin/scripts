@@ -20,6 +20,8 @@ def main():
     print("Usage: {} [new branch name]".format(os.path.basename(__file__)))
     sys.exit(1)
 
+  new_branch=new_branch.replace(' ', '-')
+
   current_branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode().strip()
 
   chosen = ""
