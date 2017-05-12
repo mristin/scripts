@@ -22,12 +22,17 @@ import multiprocessing
 
 import evdev
 
-backpedal_pth = ""
+backpedal_pth = "/dev/input/event5"
 frontpedal_pth = "/dev/input/event7"
 leftpedal_pth = ""
 rightpedal_pth = ""
 kickleft_pth = "/dev/input/event4"
 kickright_pth = "/dev/input/event6"
+
+def current_active_program():
+    pid=int(subprocess.check_output(["xdotool", "getactivewindow", "getwindowpid"]).strip())
+    path=subprocess.check_output(['readlink', '-f', '/proc/{}/exe'.format(pid)]).strip()
+    return path
 
 def do_leftpedal():
     if leftpedal_pth == '':
@@ -136,7 +141,7 @@ def do_frontpedal():
 
 
                 elif e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "key", "Escape"])
+                    subprocess.call(["xdotool", "key", "alt+Tab"])
 
 
                 else:
@@ -162,23 +167,30 @@ def do_backpedal():
 
             if e.keystate == e.key_up:
                 title = subprocess.check_output(["xdotool", "getactivewindow", "getwindowname"])
+                program = current_active_program()
 
-                if e.keycode == "KEY_2":
+                if e.keycode == "KEY_1":
                     if "Firefox" in title:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Up"])
                     elif "PyCharm" in title:
                         subprocess.call(["xdotool", "key", "alt+Left"])
-                    elif "Terminal" in title:
+                    elif "Gogland" in title:
+                        subprocess.call(["xdotool", "key", "alt+Left"])
+                    elif "CLion" in title:
+                        subprocess.call(["xdotool", "key", "alt+Left"])
+                    elif "gnome-terminal" in program:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Up"])
-                        subprocess.call(["xdotool", "key", "h"])
 
-                elif e.keycode == "KEY_1":
+                elif e.keycode == "KEY_2":
                     if "Firefox" in title:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Down"])
                     elif "PyCharm" in title:
                         subprocess.call(["xdotool", "key", "alt+Right"])
-                    elif "Terminal" in title:
-                        subprocess.call(["xdotool", "key", "ctrl+a"])
+                    elif "Gogland" in title:
+                        subprocess.call(["xdotool", "key", "alt+Right"])
+                    elif "CLion" in title:
+                        subprocess.call(["xdotool", "key", "alt+Right"])
+                    elif "gnome-terminal" in program:
                         subprocess.call(["xdotool", "key", "ctrl+Page_Down"])
 
     except e:
@@ -200,7 +212,10 @@ def do_kickright():
 
             if e.keystate == e.key_up:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "key", "shift+F10"])
+                    subprocess.call(["xdotool", "keyup", "Down"])
+            elif e.keystate == e.key_down:
+                if e.keycode == "KEY_1":
+                    subprocess.call(["xdotool", "keydown", "Down"])
 
     except e:
         dev.ungrab()
@@ -221,7 +236,10 @@ def do_kickleft():
 
             if e.keystate == e.key_up:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "key", "ctrl+shift+n"])
+                    subprocess.call(["xdotool", "keyup", "Up"])
+            elif e.keystate == e.key_down:
+                if e.keycode == "KEY_1":
+                    subprocess.call(["xdotool", "keydown", "Up"])
 
     except e:
         dev.ungrab()
