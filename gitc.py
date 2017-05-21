@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys, re,subprocess
+import os, sys, re,subprocess,readline
 
 class bcolors:
     HEADER = '\033[95m'
@@ -13,7 +13,13 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def main():
+    def prehook():
+       readline.insert_text("mristin ")
+       readline.redisplay()
+
+    readline.set_pre_input_hook(prehook)
     answer = input(bcolors.OKBLUE + "Name of the new branch (spaces will be replaced with '-'): " + bcolors.ENDC)
+    readline.set_pre_input_hook()
 
     answer=answer.replace(' ', '-')
     subprocess.check_call(['git', 'checkout', '-b', answer])
