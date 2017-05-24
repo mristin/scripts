@@ -20,14 +20,7 @@ echo "$CMD"
 echo
 
 TMPFILE="/tmp/gitpushup.$$.tmp"
-while true; do
-    read -p "Do you wish to push this? (Y)es / (N)o > " yn
-    case $yn in
-        [Yy]* ) $CMD 2>$TMPFILE; break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+$CMD 2>$TMPFILE
 
 cat $TMPFILE
 REJECTED=$(cat $TMPFILE|grep "[rejected]"|wc -l)
