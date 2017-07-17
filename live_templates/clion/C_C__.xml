@@ -1,0 +1,54 @@
+<templateSet group="C/C++">
+  <template name="panic" value="pqry::Logging::panic(__FILE__, __LINE__, $var$);$END$" toReformat="false" toShortenFQNames="true">
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="vogon" value="R&quot;v0g0n($END$)v0g0n&quot;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="say" value="pqry::Logging::say(__FILE__, __LINE__, &quot;$END$&quot;);" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="namespace" value="namespace $namespace$ {&#10;$END$&#10;}  // namespace $namespace$" toReformat="false" toShortenFQNames="true">
+    <variable name="namespace" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_DECLARATION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="mytest" value="#define BOOST_TEST_DYN_LINK&#10;#DEFINE BOOST_TEST_MODULE $test$&#10;#include &lt;boost/test/unit_test.hpp&gt;&#10;&#10;$END$" toReformat="false" toShortenFQNames="true">
+    <variable name="test" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_EXPRESSION_CPP" value="false" />
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="testcase" value="BOOST_AUTO_TEST_CASE($test$) {&#10;$END$&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="test" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_DECLARATION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="asserteq" value="BOOST_REQUIRE_EQUAL($condition$);" toReformat="false" toShortenFQNames="true">
+    <variable name="condition" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="incfs" value="#include &lt;boost/filesystem/path.hpp&gt;" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="ifnotmake" value="if (not fs::exists($var$)) {&#10;  fs::create_directories($var$);&#10;}&#10;$END$" toReformat="false" toShortenFQNames="true">
+    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+</templateSet>

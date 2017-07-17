@@ -1,0 +1,14 @@
+<templateSet group="Go">
+  <template name="iferr" value="if err != nil {&#10;  panic(err.Error())&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="GO" value="true" />
+    </context>
+  </template>
+  <template name="ifnotexists" value="if _, err := os.Stat($path$); os.IsNotExist(err) {&#10;  $end$&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="GO" value="true" />
+    </context>
+  </template>
+</templateSet>
