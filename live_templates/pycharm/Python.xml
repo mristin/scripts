@@ -1,266 +1,266 @@
 <templateSet group="Python">
-  <template name="mypy" value="#!/usr/bin/env python3&#10;&#10;def main():&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    &#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    main()&#10;" toReformat="false" toShortenFQNames="true">
+  <template name="aa" toReformat="false" toShortenFQNames="true" value="$1$ = $1$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="argparse" value="parser = argparse.ArgumentParser()&#10;args = parser.parse_args()&#10;" toReformat="false" toShortenFQNames="true">
+  <template name="arg" toReformat="false" toShortenFQNames="true" value="parser.add_argument('--$arg$', help='$help$')">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="arg" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="help" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ifnotmake" value="os.makedirs($dir$, exist_ok=True)" toReformat="false" toShortenFQNames="true">
-    <variable name="dir" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="argparse" toReformat="false" toShortenFQNames="true" value="parser = argparse.ArgumentParser()&#10;args = parser.parse_args()&#10;">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="mustexist" value="if not os.path.exists($dir$):&#10;    raise RuntimeError('Does not exist: {}'.format($dir$)$END$" toReformat="false" toShortenFQNames="true">
-    <variable name="dir" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="arr" toReformat="false" toShortenFQNames="true" value="-&gt;">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="bonk" value="raise RuntimeError('bonk')" toReformat="false" toShortenFQNames="true">
+  <template name="ass" toReformat="false" toShortenFQNames="true" value="= ">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ss" value="self.$var$ = $var$$END$" toReformat="false" toShortenFQNames="true">
-    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="bonk" toReformat="false" toShortenFQNames="true" value="raise RuntimeError('bonk')">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="say" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno, &quot;$END$&quot;)" toReformat="false" toShortenFQNames="true">
+  <template name="call" toReformat="false" toShortenFQNames="true" value="subprocess.check_call([$END$])">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="pylint" value="# pylint: disable=$END$" toReformat="false" toShortenFQNames="true">
+  <template name="deltasec" toReformat="false" toShortenFQNames="true" value="datetime.timedelta(seconds=$sec$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="sec" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="err" value="pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;$END$&quot;)" toReformat="false" toShortenFQNames="true">
+  <template description="datetime.datetime" name="dtdt" toReformat="false" toShortenFQNames="true" value="datetime.datetime">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="call" value="subprocess.check_call([$END$])" toReformat="false" toShortenFQNames="true">
+  <template name="dump" toReformat="false" toShortenFQNames="true" value="print(&quot;$var$ is {}&quot;.format(repr($var$)))  # TODO: remove var dump">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="scriptdir" value="script_dir = os.path.dirname(os.path.realpath(__file__))" toReformat="false" toShortenFQNames="true">
+  <template name="err" toReformat="false" toShortenFQNames="true" value="pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;$END$&quot;)">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="dump" value="print(&quot;$var$ is {}&quot;.format(repr($var$)))  # TODO: remove var dump" toReformat="false" toShortenFQNames="true">
-    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="fmtone" toReformat="false" toShortenFQNames="true" value="&quot;$txt1${}$txt2$&quot;.format(&#10;$var1$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="txt1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="txt2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="arg" value="parser.add_argument('--$arg$', help='$help$')" toReformat="false" toShortenFQNames="true">
-    <variable name="arg" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="help" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="fmtthree" toReformat="false" toShortenFQNames="true" value="&quot;$pre${}$txt2${}$txt3${}$txt4$&quot;.format(&#10;$var1$, $var2$, $var3$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="pre" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="txt2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="txt3" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="txt4" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var3" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="runtimetwo" value="raise RuntimeError('$msg${}: {}'.format($var1$, $var2$))" toReformat="false" toShortenFQNames="true">
-    <variable name="msg" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="fmttwo" toReformat="false" toShortenFQNames="true" value="&quot;$t1${}$t2${}$t3$&quot;.format(&#10;$v1$, $v2$, $v3$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="t1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="t2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="t3" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="v1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="v2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="v3" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="runtimeone" value="raise RuntimeError('$msg${}'.format($var$))" toReformat="false" toShortenFQNames="true">
-    <variable name="msg" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="fors" toReformat="false" toShortenFQNames="true" value="for $1$ in $1$s:&#10;    $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="givenone" value="-&gt; None" toReformat="false" toShortenFQNames="true">
+  <template name="givenone" toReformat="false" toShortenFQNames="true" value="-&gt; None">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="initone" value="def __init__(self, $arg$: $type$)-&gt;None:&#10;    &quot;&quot;&quot;&#10;    $desc$&#10;    &#10;    :param $arg$: $argdesc$&#10;    :return: None&#10;    &quot;&quot;&quot;&#10;    $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="arg" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="type" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="desc" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="argdesc" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="ifnone" toReformat="false" toShortenFQNames="true" value="if $1$ is None:&#10;  $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="siger" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno,&#10;                 &quot;Entering the endless loop. Send SIGINT or SIGTERM to {} to exit.&quot;.format(os.getpid()))&#10;pqry.siger.Siger.initialize_signal_handlers()&#10;&#10;while not pqry.siger.Siger.done():&#10;" toReformat="false" toShortenFQNames="true">
+  <template name="ifnotex" toReformat="false" toShortenFQNames="true" value="if not os.path.exists($1$):&#10;    $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="deltasec" value="datetime.timedelta(seconds=$sec$)" toReformat="false" toShortenFQNames="true">
-    <variable name="sec" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="ifnotmake" toReformat="false" toShortenFQNames="true" value="os.makedirs($dir$, exist_ok=True)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="dir" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="utcnow" value="datetime.datetime.utcnow()" toReformat="false" toShortenFQNames="true">
+  <template name="initone" toReformat="false" toShortenFQNames="true" value="def __init__(self, $arg$: $type$)-&gt;None:&#10;    &quot;&quot;&quot;&#10;    $desc$&#10;    &#10;    :param $arg$: $argdesc$&#10;    :return: None&#10;    &quot;&quot;&quot;&#10;    $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="arg" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="type" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="desc" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="argdesc" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="dtdt" value="datetime.datetime" description="datetime.datetime" toReformat="false" toShortenFQNames="true">
+  <template name="inputrysnapshot" toReformat="false" toShortenFQNames="true" value="#!/usr/bin/env python3&#10;# pylint: disable=invalid-name&#10;&quot;&quot;&quot;&#10;Fetches images from the $camera$ camera.&#10;&quot;&quot;&quot;&#10;import inspect&#10;&#10;import pipeline.input.snapshot&#10;import pqry.logging&#10;&#10;&#10;def main():&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    defaults = pipeline.input.snapshot.Params()&#10;    defaults.host = '$host$'&#10;    defaults.port = '$port$'&#10;    defaults.path = '/$path$'&#10;    defaults.arguments = '{}'&#10;&#10;    pipeline.input.snapshot.main_hook(defaults=defaults, camera_id=&quot;$camera$&quot;)&#10;&#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    try:&#10;        main()&#10;    except:&#10;        pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;Encountered an exception.&quot;)&#10;        raise&#10;">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="camera" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="host" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="port" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="path" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="wopen" value="with open($path$, '$mode$') as fid:&#10;    $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="mode" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="join" toReformat="false" toShortenFQNames="true" value="os.path.join($1$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="fmtthree" value="&quot;$pre${}$txt2${}$txt3${}$txt4$&quot;.format(&#10;$var1$, $var2$, $var3$)" toReformat="false" toShortenFQNames="true">
-    <variable name="pre" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="txt2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="txt3" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="txt4" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var3" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="mockerysnapshot" toReformat="false" toShortenFQNames="true" value="#!/usr/bin/env python3&#10;&#10;&quot;&quot;&quot;&#10;Mock snapshot server for $camera$ camera&#10;&quot;&quot;&quot;&#10;&#10;# pylint: disable=invalid-name&#10;&#10;&#10;import inspect&#10;&#10;import pqry.logging&#10;import integration_testing.mock.snapshot&#10;&#10;&#10;def main() -&gt; None:&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    defaults = integration_testing.mock.snapshot.Params()&#10;    defaults.path = '$path$'&#10;    defaults.user = 'parquery'&#10;    defaults.passw = 'passwordForTesting'&#10;&#10;    integration_testing.mock.snapshot.main_hook(defaults=defaults)&#10;&#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    try:&#10;        main()&#10;    except:&#10;        pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;Encountered an exception.&quot;)&#10;        raise&#10;">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="camera" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="path" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="fmtone" value="&quot;$txt1${}$txt2$&quot;.format(&#10;$var1$)" toReformat="false" toShortenFQNames="true">
-    <variable name="txt1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="txt2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="var1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="mustexist" toReformat="false" toShortenFQNames="true" value="if not os.path.exists($dir$):&#10;    raise RuntimeError('Does not exist: {}'.format($dir$)$END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="dir" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="fmttwo" value="&quot;$t1${}$t2${}$t3$&quot;.format(&#10;$v1$, $v2$, $v3$)" toReformat="false" toShortenFQNames="true">
-    <variable name="t1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="t2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="t3" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="v1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="v2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="v3" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="mypy" toReformat="false" toShortenFQNames="true" value="#!/usr/bin/env python3&#10;&#10;def main():&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    &#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    main()&#10;">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="mockerysnapshot" value="#!/usr/bin/env python3&#10;&#10;&quot;&quot;&quot;&#10;Mock snapshot server for $camera$ camera&#10;&quot;&quot;&quot;&#10;&#10;# pylint: disable=invalid-name&#10;&#10;&#10;import inspect&#10;&#10;import pqry.logging&#10;import integration_testing.mock.snapshot&#10;&#10;&#10;def main() -&gt; None:&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    defaults = integration_testing.mock.snapshot.Params()&#10;    defaults.path = '$path$'&#10;    defaults.user = 'parquery'&#10;    defaults.passw = 'passwordForTesting'&#10;&#10;    integration_testing.mock.snapshot.main_hook(defaults=defaults)&#10;&#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    try:&#10;        main()&#10;    except:&#10;        pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;Encountered an exception.&quot;)&#10;        raise&#10;" toReformat="false" toShortenFQNames="true">
-    <variable name="camera" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="open" toReformat="false" toShortenFQNames="true" value="with open($1$, '$2$') as fid:&#10;    $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="2" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="inputrysnapshot" value="#!/usr/bin/env python3&#10;# pylint: disable=invalid-name&#10;&quot;&quot;&quot;&#10;Fetches images from the $camera$ camera.&#10;&quot;&quot;&quot;&#10;import inspect&#10;&#10;import pipeline.input.snapshot&#10;import pqry.logging&#10;&#10;&#10;def main():&#10;    &quot;&quot;&quot;&#10;    Main routine&#10;    &quot;&quot;&quot;&#10;    defaults = pipeline.input.snapshot.Params()&#10;    defaults.host = '$host$'&#10;    defaults.port = '$port$'&#10;    defaults.path = '/$path$'&#10;    defaults.arguments = '{}'&#10;&#10;    pipeline.input.snapshot.main_hook(defaults=defaults, camera_id=&quot;$camera$&quot;)&#10;&#10;&#10;if __name__ == &quot;__main__&quot;:&#10;    try:&#10;        main()&#10;    except:&#10;        pqry.logging.err(__file__, inspect.currentframe().f_lineno, &quot;Encountered an exception.&quot;)&#10;        raise&#10;" toReformat="false" toShortenFQNames="true">
-    <variable name="camera" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="host" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="port" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="path" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="par" toReformat="false" toShortenFQNames="true" value="($SELECTION$)">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ass" value="= " toReformat="false" toShortenFQNames="true">
+  <template name="pylint" toReformat="false" toShortenFQNames="true" value="# pylint: disable=$END$">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="arr" value="-&gt;" toReformat="false" toShortenFQNames="true">
+  <template name="repr" toReformat="false" toShortenFQNames="true" value="repr($SELECTION$)">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="join" value="os.path.join($1$)" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="req" toReformat="false" toShortenFQNames="true" value="required=True">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ifnone" value="if $1$ is None:&#10;  $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="runtimeone" toReformat="false" toShortenFQNames="true" value="raise RuntimeError('$msg${}'.format($var$))">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="msg" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="repr" value="repr($SELECTION$)" toReformat="false" toShortenFQNames="true">
+  <template name="runtimetwo" toReformat="false" toShortenFQNames="true" value="raise RuntimeError('$msg${}: {}'.format($var1$, $var2$))">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="msg" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var2" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="tdelta" value="datetime.timedelta(seconds=$SELECTION$)" toReformat="false" toShortenFQNames="true">
+  <template name="say" toReformat="false" toShortenFQNames="true" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno, &quot;$END$&quot;)">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="sayone" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno, &#10;  &quot;$1${}$2$&quot;.format($v1$))" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="2" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="v1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="sayone" toReformat="false" toShortenFQNames="true" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno, &#10;  &quot;$1${}$2$&quot;.format($v1$))">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="2" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="v1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="par" value="($SELECTION$)" toReformat="false" toShortenFQNames="true">
+  <template name="scriptdir" toReformat="false" toShortenFQNames="true" value="script_dir = os.path.dirname(os.path.realpath(__file__))">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="aa" value="$1$ = $1$" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="siger" toReformat="false" toShortenFQNames="true" value="pqry.logging.say(__file__, inspect.currentframe().f_lineno,&#10;                 &quot;Entering the endless loop. Send SIGINT or SIGTERM to {} to exit.&quot;.format(os.getpid()))&#10;pqry.siger.Siger.initialize_signal_handlers()&#10;&#10;while not pqry.siger.Siger.done():&#10;">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="fors" value="for $1$ in $1$s:&#10;    $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="ss" toReformat="false" toShortenFQNames="true" value="self.$var$ = $var$$END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="req" value="required=True" toReformat="false" toShortenFQNames="true">
+  <template name="tdelta" toReformat="false" toShortenFQNames="true" value="datetime.timedelta(seconds=$SELECTION$)">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="open" value="with open($1$, '$2$') as fid:&#10;    $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="2" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="todo" toReformat="false" toShortenFQNames="true" value="# TODO(marko): ">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="union" value="# type: Union[None, $1$]" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="union" toReformat="false" toShortenFQNames="true" value="# type: Union[None, $1$]">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="unusedimport" value="# pylint: disable=unused-import" toReformat="false" toShortenFQNames="true">
+  <template name="unusedimport" toReformat="false" toShortenFQNames="true" value="# pylint: disable=unused-import">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="ifnotex" value="if not os.path.exists($1$):&#10;    $END$" toReformat="false" toShortenFQNames="true">
-    <variable name="1" expression="" defaultValue="" alwaysStopAt="true" />
+  <template name="utcnow" toReformat="false" toShortenFQNames="true" value="datetime.datetime.utcnow()">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="todo" value="# TODO(marko): " toReformat="false" toShortenFQNames="true">
+  <template name="wopen" toReformat="false" toShortenFQNames="true" value="with open($path$, '$mode$') as fid:&#10;    $END$">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="path" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="mode" />
     <context>
       <option name="Python" value="true" />
     </context>
