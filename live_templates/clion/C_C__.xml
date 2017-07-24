@@ -5,10 +5,29 @@
       <option name="OC_STATEMENT_CPP" value="true" />
     </context>
   </template>
+  <template name="forc" toReformat="false" toShortenFQNames="true" value="for (const auto&amp; $item$ : $var1$) {&#10;    $END$&#10;}">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="item" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="var1" />
+    <context>
+      <option name="cpp" value="true" />
+    </context>
+  </template>
+  <template name="iff" toReformat="false" toShortenFQNames="true" value="if($1$) {&#10;  $END$&#10;}">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <context>
+      <option name="cpp" value="true" />
+    </context>
+  </template>
   <template name="ifnotmake" toReformat="false" toShortenFQNames="true" value="if (not fs::exists($var$)) {&#10;  fs::create_directories($var$);&#10;}&#10;$END$">
     <variable alwaysStopAt="true" defaultValue="" expression="" name="var" />
     <context>
       <option name="OC_STATEMENT_CPP" value="true" />
+    </context>
+  </template>
+  <template name="ifsopen" toReformat="false" toShortenFQNames="true" value="std::ifstream ifs($1$.c_str(), std::ios::in | std::ios::binary);&#10;if (not ifs.good()) {&#10;  pqry::Logging::panic(__FILE__, __LINE__, &quot;Failed to read from: %s&quot;, $1$);&#10;}">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <context>
+      <option name="cpp" value="true" />
     </context>
   </template>
   <template name="incfs" toReformat="false" toShortenFQNames="true" value="#include &lt;boost/filesystem/path.hpp&gt;">
@@ -16,7 +35,7 @@
       <option name="cpp" value="true" />
     </context>
   </template>
-  <template name="mytest" toReformat="false" toShortenFQNames="true" value="#define BOOST_TEST_DYN_LINK&#10;#DEFINE BOOST_TEST_MODULE $test$&#10;#include &lt;boost/test/unit_test.hpp&gt;&#10;&#10;$END$">
+  <template name="mytest" toReformat="false" toShortenFQNames="true" value="#define BOOST_TEST_DYN_LINK&#10;#define BOOST_TEST_MODULE $test$&#10;#include &lt;boost/test/unit_test.hpp&gt;&#10;&#10;$END$">
     <variable alwaysStopAt="true" defaultValue="" expression="" name="test" />
     <context>
       <option name="OC_EXPRESSION_CPP" value="false" />
@@ -27,6 +46,12 @@
     <variable alwaysStopAt="true" defaultValue="" expression="" name="namespace" />
     <context>
       <option name="OC_DECLARATION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="ofsopen" toReformat="false" toShortenFQNames="true" value="std::ofstream ofs($1$.c_str(), std::ios::out | std::ios::binary);&#10;if (not ofs.good()) {&#10;  pqry::Logging::panic(__FILE__, __LINE__, &quot;Failed to open for writing: %s&quot;, $1$);&#10;}">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <context>
+      <option name="cpp" value="true" />
     </context>
   </template>
   <template name="panic" toReformat="false" toShortenFQNames="true" value="pqry::Logging::panic(__FILE__, __LINE__, $var$);$END$">
@@ -40,6 +65,13 @@
       <option name="OC_STATEMENT_CPP" value="true" />
     </context>
   </template>
+  <template name="scopeexit" toReformat="false" toShortenFQNames="true" value="auto $1$ = socantre::make_scope_exit([$2$] {&#10;    $END$&#10;  });">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="2" />
+    <context>
+      <option name="cpp" value="true" />
+    </context>
+  </template>
   <template name="testcase" toReformat="false" toShortenFQNames="true" value="BOOST_AUTO_TEST_CASE($test$) {&#10;$END$&#10;}">
     <variable alwaysStopAt="true" defaultValue="" expression="" name="test" />
     <context>
@@ -49,6 +81,12 @@
   <template name="vogon" toReformat="false" toShortenFQNames="true" value="R&quot;v0g0n($END$)v0g0n&quot;">
     <context>
       <option name="OC_EXPRESSION_CPP" value="true" />
+    </context>
+  </template>
+  <template name="vv" toReformat="false" toShortenFQNames="true" value="$1$_($1$)">
+    <variable alwaysStopAt="true" defaultValue="" expression="" name="1" />
+    <context>
+      <option name="cpp" value="true" />
     </context>
   </template>
 </templateSet>
