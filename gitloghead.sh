@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git log|head
+git log |head -25
 
