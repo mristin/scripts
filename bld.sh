@@ -1,2 +1,2 @@
 #!/bin/bash
-src/docker/building-local/runme.py
+src/py/buildils/releasery.py
