@@ -141,7 +141,7 @@ def do_frontpedal():
 
 
                 elif e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "key", "alt+Tab"])
+                    subprocess.call(["xdotool", "key", "Tab"])
 
 
                 else:
@@ -212,10 +212,11 @@ def do_kickright():
 
             if e.keystate == e.key_up:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "keyup", "Down"])
-            elif e.keystate == e.key_down:
-                if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "keydown", "Down"])
+                    #subprocess.call(["xdotool", "keyup", "Down"])
+                    subprocess.call(["xdotool", "type", "Hi Andrea,"])
+            #elif e.keystate == e.key_down:
+            #    if e.keycode == "KEY_1":
+            #        subprocess.call(["xdotool", "keydown", "Down"])
 
     except e:
         dev.ungrab()
@@ -236,10 +237,17 @@ def do_kickleft():
 
             if e.keystate == e.key_up:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "keyup", "Up"])
+                    subprocess.call(["xdotool", "keyup", "ctrl+shift+n"])
             elif e.keystate == e.key_down:
                 if e.keycode == "KEY_1":
-                    subprocess.call(["xdotool", "keydown", "Up"])
+                    subprocess.call(["xdotool", "keydown", "ctrl+shift+n"])
+
+            #if e.keystate == e.key_up:
+            #    if e.keycode == "KEY_1":
+            #        subprocess.call(["xdotool", "keyup", "Up"])
+            #elif e.keystate == e.key_down:
+            #    if e.keycode == "KEY_1":
+            #        subprocess.call(["xdotool", "keydown", "Up"])
 
     except e:
         dev.ungrab()
