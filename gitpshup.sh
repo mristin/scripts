@@ -33,9 +33,9 @@ if [[ $REJECTED > 0 && $TIP > 0 ]]; then
   echo
 
   while true; do
-      read -p "Do you wish to force this? (F)orce / (N)o > " yn
+      read -p "Do you wish to force this? (Y)es / (N)o > " yn
       case $yn in
-          [Ff]* ) $CMD; break;;
+          [Yy]* ) $CMD; break;;
           [Nn]* ) exit;;
           * ) echo "Invalid answer.";;
       esac
