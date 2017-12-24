@@ -14,7 +14,7 @@ class bcolors:
 
 def main():
     def prehook():
-       readline.insert_text("mristin ")
+       readline.insert_text("mristin/")
        readline.redisplay()
 
     readline.set_pre_input_hook(prehook)
