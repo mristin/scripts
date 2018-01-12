@@ -16,9 +16,9 @@ def main():
     
     answer=''
     while answer not in ['y', 'n']:
-       answer = input("git commit -m {}? y/n >".format(shlex.quote(msg)))
+       answer = input("git commit -m {}? Y/n >".format(shlex.quote(msg)))
     
-    if answer == 'y':
+    if answer == 'y' or answer == '':
         subprocess.check_output(['git', 'commit', '-m', msg])
     
 
