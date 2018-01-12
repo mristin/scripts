@@ -23,11 +23,11 @@ import multiprocessing
 import evdev
 
 backpedal_pth = "/dev/input/event5"
-frontpedal_pth = "/dev/input/event7"
+frontpedal_pth = "/dev/input/event4"
 leftpedal_pth = ""
 rightpedal_pth = ""
-kickleft_pth = "/dev/input/event4"
-kickright_pth = "/dev/input/event6"
+kickleft_pth = "/dev/input/event6"
+kickright_pth = "/dev/input/event3"
 
 def current_active_program():
     pid=int(subprocess.check_output(["xdotool", "getactivewindow", "getwindowpid"]).strip())
@@ -255,6 +255,10 @@ def do_kickleft():
 
 
 def main():
+    retcode = subprocess.call(['which', 'xdotool'])
+    if retcode != 0:
+        raise RuntimeError("xdotool missing")
+
     pp = []
 
     for func in [do_backpedal, do_frontpedal, do_leftpedal, do_rightpedal, do_kickleft, do_kickright]:
