@@ -12,7 +12,7 @@ def main():
     current_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode().strip()
     print(current_branch)
     
-    msg=current_branch.replace("mristin-", "").replace("-", " ")
+    msg=current_branch.replace("mristin/", "").replace("-", " ")
     
     answer=''
     while answer not in ['y', 'n']:
