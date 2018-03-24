@@ -29,17 +29,7 @@ TIP=$(cat $TMPFILE|grep "hint: Updates were rejected because the tip of your cur
 if [[ $REJECTED > 0 && $TIP > 0 ]]; then
   echo
   CMD="git push --set-upstream origin $BRANCH --force"
-  echo "$CMD"
-  echo
-
-  while true; do
-      read -p "Do you wish to force this? Y/n > " yn
-      case $yn in
-          [Yy]* ) $CMD; break;;
-          [Nn]* ) exit;;
-          '' ) $CMD; break;;
-          * ) echo "Invalid answer."; break;;
-      esac
-  done
+  echo $CMD
+  $CMD
 fi
 
