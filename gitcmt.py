@@ -14,12 +14,7 @@ def main():
     
     msg=current_branch.replace("mristin/", "").replace("-", " ")
     
-    answer=''
-    while answer not in ['y', 'n']:
-       answer = input("git commit -m {}? Y/n >".format(shlex.quote(msg)))
-    
-    if answer == 'y' or answer == '':
-        subprocess.check_output(['git', 'commit', '-m', msg])
+    subprocess.check_output(['git', 'commit', '-m', msg])
     
 
 if __name__ == "__main__":
