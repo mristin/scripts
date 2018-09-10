@@ -17,6 +17,11 @@ def main():
     branches = list(reversed([branchRe.match(branch).group(1) for branch in lst if branch != ""]))
 
     for (branch_i, branch) in enumerate(branches):
+        if branch == "master":
+            branches.insert(0, branches.pop(branch_i))
+            break
+
+    for (branch_i, branch) in enumerate(branches):
         if branch == current_branch:
             print(bcolors.OKBLUE + ("%d) %s [CURRENT]" % (branch_i+1, branch)) + bcolors.ENDC)
         else:
