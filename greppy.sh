@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -rnw --include="*.py" -e "$1"
+grep -rn --include="*.py" -e "$1"
