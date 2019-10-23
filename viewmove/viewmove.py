@@ -86,7 +86,8 @@ class Controler:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--files", nargs='+', help="list of files to rename")
+        "--files", nargs='+', help="list of files to rename",
+        required=True)
     args = parser.parse_args()
 
     paths = [pathlib.Path(file) for file in args.files]
